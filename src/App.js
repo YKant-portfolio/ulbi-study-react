@@ -1,24 +1,15 @@
-import { useState } from 'react';
+import Counter from './Components/Counter';
+
 import './App.css';
 
 function App() {
 
-	// управляемый компонент  - всегда можем изменить значение компонента изменив состояние
-	// двухстороннее связывание (связывание состояния с со значениекм которое в input)
-	// синхронизация
-
-	const [value, setValue] = useState("текст в инпуте"); // состояние
 	return (
 		<div className="App">
-			<h1>{value}</h1>
-			<input type="text"
-				value={value} // передается из стейта
-				onChange={event => setValue(event.target.value)} // можем это значение value доставать и помещать в состояние 
-			/>
+			<Counter />
+			<Counter />
 		</div>
 	);
 }
-
-// Управляемый компонент - это компонент, который получает измененное значение от функции обратного вызова, а неуправляемый компонент - это компонент, который имеет значение из DOM.
 
 export default App;
