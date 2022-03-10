@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	// управляемый компонент  - всегда можем изменить значение компонента изменив состояние
+	// двухстороннее связывание (связывание состояния с со значениекм которое в input)
+	// синхронизация
+
+	const [value, setValue] = useState("текст в инпуте"); // состояние
+	return (
+		<div className="App">
+			<h1>{value}</h1>
+			<input type="text"
+				value={value} // передается из стейта
+				onChange={event => setValue(event.target.value)} // можем это значение value доставать и помещать в состояние 
+			/>
+		</div>
+	);
 }
+
+// Управляемый компонент - это компонент, который получает измененное значение от функции обратного вызова, а неуправляемый компонент - это компонент, который имеет значение из DOM.
 
 export default App;
